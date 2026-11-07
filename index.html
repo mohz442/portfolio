@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Mohz442 | Developer Portfolio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --bg: #0a0e17;
+      --surface: #121826;
+      --surface-2: #1a2234;
+      --text: #e8eefc;
+      --muted: #8b9bb4;
+      --accent: #3ee0b1;
+      --accent-2: #6ee7b7;
+      --border: rgba(255,255,255,0.08);
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Inter', system-ui, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+    .container { max-width: 1100px; margin: 0 auto; padding: 0 24px; }
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      background: rgba(10,14,23,0.85); backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+    }
+    .nav-inner { display: flex; justify-content: space-between; align-items: center; height: 72px; }
+    .logo { font-family: 'Space Grotesk', sans-serif; font-weight: 700; font-size: 1.4rem; color: var(--accent); text-decoration: none; }
+    .nav-links { display: flex; gap: 32px; list-style: none; }
+    .nav-links a { color: var(--muted); text-decoration: none; font-weight: 500; transition: color 0.2s; }
+    .nav-links a:hover { color: var(--accent); }
+    .hero {
+      min-height: 100vh; display: flex; align-items: center; padding-top: 72px;
+      background: radial-gradient(ellipse 80% 50% at 50% -20%, rgba(62,224,177,0.15), transparent);
+    }
+    .hero-content { display: grid; grid-template-columns: 1.2fr 0.8fr; gap: 60px; align-items: center; }
+    .badge {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: var(--surface); border: 1px solid var(--border); border-radius: 999px;
+      padding: 6px 14px; font-size: 0.85rem; color: var(--accent); margin-bottom: 20px;
+    }
+    .badge::before { content: ''; width: 8px; height: 8px; background: var(--accent); border-radius: 50%; }
+    h1 { font-family: 'Space Grotesk', sans-serif; font-size: clamp(2.8rem, 6vw, 4.5rem); line-height: 1.05; margin-bottom: 16px; }
+    .hero p { font-size: 1.15rem; color: var(--muted); max-width: 480px; margin-bottom: 32px; }
+    .btn {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: var(--accent); color: #0a0e17; padding: 14px 28px; border-radius: 12px;
+      text-decoration: none; font-weight: 600; transition: transform 0.2s, box-shadow 0.2s;
+    }
+    .btn:hover { transform: translateY(-2px); box-shadow: 0 10px 30px rgba(62,224,177,0.3); }
+    .btn-outline {
+      background: transparent; border: 1px solid var(--border); color: var(--text); margin-left: 12px;
+    }
+    .btn-outline:hover { border-color: var(--accent); color: var(--accent); }
+    .avatar-wrap {
+      position: relative; justify-self: center;
+    }
+    .avatar {
+      width: 280px; height: 280px; border-radius: 40px; object-fit: cover;
+      border: 3px solid var(--accent); box-shadow: 0 20px 60px rgba(62,224,177,0.2);
+    }
+    section { padding: 100px 0; }
+    h2 { font-family: 'Space Grotesk', sans-serif; font-size: 2.5rem; margin-bottom: 16px; }
+    .section-sub { color: var(--muted); margin-bottom: 48px; max-width: 600px; }
+    .skills { display: flex; flex-wrap: wrap; gap: 12px; }
+    .skill {
+      background: var(--surface); border: 1px solid var(--border); padding: 10px 20px;
+      border-radius: 999px; font-size: 0.95rem; font-weight: 500;
+    }
+    .projects { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 24px; }
+    .project-card {
+      background: var(--surface); border: 1px solid var(--border); border-radius: 20px;
+      padding: 28px; transition: transform 0.25s, border-color 0.25s;
+    }
+    .project-card:hover { transform: translateY(-6px); border-color: var(--accent); }
+    .project-card h3 { font-size: 1.4rem; margin-bottom: 8px; }
+    .project-card p { color: var(--muted); margin-bottom: 20px; }
+    .tags { display: flex; gap: 8px; flex-wrap: wrap; }
+    .tag { background: var(--surface-2); color: var(--accent); padding: 4px 12px; border-radius: 999px; font-size: 0.8rem; }
+    .contact { text-align: center; background: var(--surface); border-radius: 24px; padding: 60px 40px; }
+    footer { text-align: center; padding: 40px 0; color: var(--muted); border-top: 1px solid var(--border); }
+    @media (max-width: 800px) {
+      .hero-content { grid-template-columns: 1fr; text-align: center; }
+      .hero p { margin-left: auto; margin-right: auto; }
+      .nav-links { display: none; }
+      .avatar { width: 200px; height: 200px; }
+    }
+  </style>
+</head>
+<body>
+  <nav>
+    <div class="container nav-inner">
+      <a href="#" class="logo">mohz442</a>
+      <ul class="nav-links">
+        <li><a href="#about">About</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <section class="hero">
+    <div class="container hero-content">
+      <div>
+        <div class="badge">Available for opportunities</div>
+        <h1>Building digital<br />experiences.</h1>
+        <p>Full-stack developer focused on modern web apps with React, TypeScript, and clean architecture. Turning ideas into polished, production-ready products.</p>
+        <a href="#projects" class="btn">View Projects</a>
+        <a href="#contact" class="btn btn-outline">Get in touch</a>
+      </div>
+      <div class="avatar-wrap">
+        <img src="https://avatars.githubusercontent.com/u/328918126?v=4" alt="mohz442" class="avatar" />
+      </div>
+    </div>
+  </section>
+
+  <section id="about">
+    <div class="container">
+      <h2>About</h2>
+      <p class="section-sub">I'm a developer passionate about creating fast, accessible, and beautiful web applications. Currently exploring modern stacks including React 19, TanStack, and AI-assisted development workflows.</p>
+      <p>I believe in shipping real products, writing maintainable code, and continuous learning. This portfolio is a living document — more projects and details coming soon.</p>
+    </div>
+  </section>
+
+  <section id="skills">
+    <div class="container">
+      <h2>Skills</h2>
+      <p class="section-sub">Technologies and tools I work with.</p>
+      <div class="skills">
+        <span class="skill">React</span>
+        <span class="skill">TypeScript</span>
+        <span class="skill">JavaScript</span>
+        <span class="skill">Vite</span>
+        <span class="skill">TanStack Router</span>
+        <span class="skill">Tailwind CSS</span>
+        <span class="skill">Node.js</span>
+        <span class="skill">PostgreSQL</span>
+        <span class="skill">Better Auth</span>
+        <span class="skill">HTML & CSS</span>
+        <span class="skill">Git & GitHub</span>
+        <span class="skill">UI/UX Design</span>
+      </div>
+    </div>
+  </section>
+
+  <section id="projects">
+    <div class="container">
+      <h2>Projects</h2>
+      <p class="section-sub">Selected work and experiments.</p>
+      <div class="projects">
+        <div class="project-card">
+          <h3>WeRiseAsOne</h3>
+          <p>Modern full-stack web application scaffold built with React 19, TanStack Start, Tailwind CSS, and Better Auth. Designed as a high-quality foundation for production apps with auth, database, and polished UI systems.</p>
+          <div class="tags">
+            <span class="tag">React</span>
+            <span class="tag">TypeScript</span>
+            <span class="tag">TanStack</span>
+            <span class="tag">Tailwind</span>
+          </div>
+        </div>
+        <div class="project-card">
+          <h3>More Coming Soon</h3>
+          <p>I'm actively building and will add more projects here. Interested in web apps, interactive experiences, and tools that solve real problems.</p>
+          <div class="tags">
+            <span class="tag">In Progress</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact">
+    <div class="container">
+      <div class="contact">
+        <h2>Let's connect</h2>
+        <p class="section-sub" style="margin: 0 auto 32px;">Open to collaborations, freelance, or full-time opportunities. Reach out via GitHub or email.</p>
+        <a href="https://github.com/mohz442" target="_blank" class="btn">GitHub Profile</a>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="container">
+      <p>© 2026 mohz442 · Built with care</p>
+    </div>
+  </footer>
+</body>
+</html>
